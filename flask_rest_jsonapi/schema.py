@@ -59,6 +59,8 @@ def compute_schema(schema_cls, default_kwargs, qs, include):
         if schema.only is not None and 'id' not in schema.only:
             schema.only += ('id',)
 
+        schema._init_fields()
+
     # manage compound documents
     if include:
         for include_path in include:
